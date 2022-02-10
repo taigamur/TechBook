@@ -28,6 +28,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_DATABASE: myapp_development
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - db-data:/var/lib/mysql
     networks:

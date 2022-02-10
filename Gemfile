@@ -25,6 +25,10 @@ gem 'dotenv-rails'
 #アプリケーション内でHTTPリクエストを投げたい場合に使うクラス
 gem 'httpclient'
 
+#add
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
 group :development, :test do
   gem 'sqlite3', '1.4.1'
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
