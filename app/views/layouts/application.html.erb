@@ -12,16 +12,22 @@
   <body>
     <header>
       <% if current_user %>
-        <%
-=begin%>
- <%= image_tag current_user.image %> 
-<%
-=end%>
+  
+        <% if current_user.image != nil %>
+          <%= image_tag current_user.image %> 
+        <% end %>
+        id:
+        <%= current_user.id %>
         <%= current_user.email %>さん
-        <hr>
+        
         <%= current_user.name %>さん
 
+        <%= link_to "ユーザー情報の変更", edit_home_path %>
+        <%= link_to "ホームに戻る", root_path %>
         <%= link_to "ログアウト", log_out_path %>
+
+        <hr>
+
       <% else %>
         ゲスト
         <%= link_to "Googleでログイン", "/auth/google_oauth2", method: :post %>
