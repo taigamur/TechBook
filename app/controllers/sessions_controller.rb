@@ -5,12 +5,12 @@ class SessionsController < ApplicationController
         if(user = User.find_or_create_from_auth_hash(auth_hash))
             log_in user
         end
-        redirect_to home_index_path
+        redirect_to home_index_path, notice: "ログインしました"
     end
 
     def destroy
         log_out
-        redirect_to root_path
+        redirect_to new_home_path, notice: "ログアウトしました"
     end
 
     private
