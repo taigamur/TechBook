@@ -1,0 +1,9 @@
+name: <%= @post.name %>
+
+content_public: <%= @post.content_public %>
+
+content_private: <%= @post.content_private %>
+
+<% if @post.created_by?(current_user) %>
+    <%= link_to "投稿の編集", edit_post_path(@post) %>
+<% end %>

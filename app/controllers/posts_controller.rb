@@ -10,7 +10,16 @@ class PostsController < ApplicationController
         if @post.save
             redirect_to root_path
         end
+    end
 
+    # 自分のリスト
+    def index
+        @posts = current_user.posts
+    end
+
+    # 自分の個別
+    def show
+        @post = Post.find(params[:id])
     end
 
 

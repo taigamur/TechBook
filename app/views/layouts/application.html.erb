@@ -24,7 +24,7 @@
         <%= link_to "ログアウト", log_out_path %>
         <%= link_to "新規投稿", new_post_path %>
         <%= link_to 'マイプロフィール', ' ' %>
-        <%= link_to "マイライブラリ", '' %>
+        <%= link_to "マイライブラリ", posts_path(id: current_user.id) %>
         <%= link_to "ブックマーク", '' %>
 
         <hr>
