@@ -19,9 +19,22 @@ class PostsController < ApplicationController
 
     # 自分の個別
     def show
-        @post = Post.find(params[:id])
+        # @post = Post.find(params[:id])
+        @post = current_user.posts.find(params[:id])
     end
 
+    def update
+        @post = current_user.posts.find(params[:id])
+        if @post.update(post_params)
+            redirect_to_to posts_path
+        end
+    end
+
+    def destroy
+        @post = current_user.posts.find(params[:id])
+        @post.destroy!
+        redirect_to root_path, notice: "削除しました"
+    end
 
     private
     def post_params
