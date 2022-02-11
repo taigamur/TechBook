@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-    skip_before_action :check_logged_in, only: :new
+    skip_before_action :authenticate, only: :new
 
 
 end
