@@ -23,10 +23,14 @@ class PostsController < ApplicationController
         @post = current_user.posts.find(params[:id])
     end
 
+    def edit
+        @post = current_user.posts.find(params[:id])
+    end
+
     def update
         @post = current_user.posts.find(params[:id])
         if @post.update(post_params)
-            redirect_to_to posts_path
+            redirect_to @post, notice: "更新しました"
         end
     end
 

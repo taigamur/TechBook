@@ -21,7 +21,7 @@
 
         <%= link_to "ユーザー情報の変更", edit_home_path(id: current_user.id) %>
         <%= link_to "ホームに戻る", root_path %>
-        <%= link_to "ログアウト", log_out_path %>
+        <%= link_to "ログアウト", log_out_path, data: {confirm: "ログアウトしますか？" }%>
         <%= link_to "新規投稿", new_post_path %>
         <%= link_to 'マイプロフィール', ' ' %>
         <%= link_to "マイライブラリ", posts_path(id: current_user.id) %>
