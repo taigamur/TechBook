@@ -19,7 +19,6 @@ class PostsController < ApplicationController
 
     # 自分の個別
     def show
-        # @post = Post.find(params[:id])
         @post = current_user.posts.find(params[:id])
     end
 
