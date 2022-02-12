@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :home
   resources :posts
   resources :users
+  resources :searches
 end
