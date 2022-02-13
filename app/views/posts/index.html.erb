@@ -3,7 +3,7 @@
 
 <ul class="posts-list">
     <% @posts.each do |post| %>
-        <%= link_to(post, class:"list-group-item list-grouop-item action") do %>
+        <%= link_to(post, class:"list-group-item list-group-item action") do %>
             <%= post.id %>
             <%= post.name %>
             <%= post.content_public %>

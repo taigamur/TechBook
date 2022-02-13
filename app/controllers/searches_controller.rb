@@ -11,15 +11,19 @@ class SearchesController < ApplicationController
 
     # 検索結果ページ
     def index
-        uri = URI('https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404')
-        params = {
-            :applicationId => ENV['RAKUTEN_API'] 
-            # :keyword => "DaiGo"
+        s = 'DaiGo'
+        q = {
+            :applicationId => ENV['RAKUTEN_API'],
+            :keyword => s,
+            :booksGenreld => '000'
         }
-        uri.query = URI.encode_www_form(params)
-        res = Net::HTTP.get_response(uri)
-        @test = Net::HTTP.get_response(uri)
-        @book = res.body
+        client = HTTPClient.new
+        
+        request = client.get('https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404', q)
+        @api_params = JSON.parse(request.body)
+      
     end
+
+    # test: https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?format=json&keyword=%E6%9C%AC&booksGenreId=000&applicationId=1080997820288206789
 
 end
