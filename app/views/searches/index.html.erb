@@ -1,14 +1,7 @@
-<hr>
-
-Uri:
-
-<hr>
-
-<%= @api_params %>
-
+<h1>検索結果</h1>
 <% @api_params['Items'].each do |api| %>
     <%= link_to(' ', class:"list-group-item  action") do %>
-        <%= api['Item']['mediumImageUrl'] %>
+        <%= image_tag api['Item']['mediumImageUrl'] %>
         <%= api['Item']['title'] %> , <%= api['Item']['author'] %>
     <% end %>
 <% end %>
