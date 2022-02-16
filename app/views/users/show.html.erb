@@ -1,17 +1,24 @@
-<h1>マイプロフィール<h2>
+<h1>ユーザーid: <%= @user.id%><h1>
 
 
 <h5>Email</h5> 
-<%= current_user.email %>
+<%= @user.email %>
 
 
 <h5>User名</h5>
-<% if current_user.name == nil %>
+<% if @user.name == nil %>
 name: null
 <% end %>
-<%= current_user.name %>
+
+
+<>
+
+<%= @user.name %>
+<hr>
+following: <%= @user.following.count %> , followers: <%= @user.followers.count %>
+<hr>
+<%= render 'follow_form' %>
+<hr>
 
 <h5>コメント</h5>
 
-
-<%= link_to "ユーザー情報の変更", edit_user_path(id: current_user.id) %>

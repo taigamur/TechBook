@@ -1,0 +1,7 @@
+
+<% @users.each do |user| %>
+    <%= link_to(user, class:"list-group-item action") do %>
+        <%= user.email %>さん
+    <% end %>
+<% end %>
+
