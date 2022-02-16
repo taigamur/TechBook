@@ -1,7 +1,10 @@
-<h1>検索結果</h1>
-<% @api_params['Items'].each do |api| %>
-    <%= link_to(' ', class:"list-group-item  action") do %>
-        <%= image_tag api['Item']['mediumImageUrl'] %>
-        <%= api['Item']['title'] %> , <%= api['Item']['author'] %>
+<div class="container">
+    <h1>検索結果</h1>
+    <% @api_params['Items'].each do |api| %>
+        <%= link_to(new_post_path(name: api['Item']['title'], author: api['Item']['author']), 
+            class:"list-group-item  action") do %>
+            <%= image_tag api['Item']['mediumImageUrl'] %>
+            <%= api['Item']['title'] %> , <%= api['Item']['author'] %>
+        <% end %>
     <% end %>
-<% end %>
+</div>

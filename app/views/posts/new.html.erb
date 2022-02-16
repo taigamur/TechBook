@@ -1,27 +1,22 @@
-<h1>新規投稿</h1>
-
-
-
-<%= form_with(model: @post, class: "form-horizontal") do |f| %>
-  <div id="errors"></div>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :content_private %>
-    <%= f.text_field :content_private, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :content_public %>
-    <%= f.text_field :content_private, class: "form-control" %>
-  </div>
-
-
-
-
-  <%= f.submit class: "btn btn-primary" %>
-
-
-
-<% end %>
+<div class="container">
+  <h1>新規投稿</h1>
+  name: <%= @title %>, author: <%= @author %>
+  <%= form_with(model: @post, class: "form-horizontal") do |f| %>
+    <div id="errors"></div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, value: @title ,class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :content_private %>
+      <%= f.text_field :content_private, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :content_public %>
+      <%= f.text_field :content_private, class: "form-control" %>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+  
+  <%= link_to "戻る", new_search_path %>
+</div>

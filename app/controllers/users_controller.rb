@@ -12,10 +12,11 @@ class UsersController < ApplicationController
     # 個別のユーザーを表示
     def show
         @user = User.find(params[:id])
+        @posts = @user.posts
     end
 
     def edit
-        @user =current_user
+        @user = current_user
     end
 
     def update

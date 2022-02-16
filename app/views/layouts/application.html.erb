@@ -31,19 +31,18 @@
         <%= link_to "本を探す", new_search_path %>
         <%= link_to "ブックマーク", ' ' %>
         <%= link_to "ユーザー一覧", users_path %>
+        <%= link_to "MyPage", user_path(id: current_user.id) %>
 
         <hr>
       <% end %>
     </header>
 
-    <div class="container">
+   
       <% flash.each do |message_type, message| %>
         <div class="alert alert-success"><%= message %></div>
       <% end %>
 
-
-
       <%= yield %>
-    </div>
+
   </body>
 </html>

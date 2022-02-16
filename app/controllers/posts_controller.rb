@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
 
     def new
-        @post = current_user.posts.build
+        @title = params[:name]
+        @author = params[:author]
+        @image_url = params[:image]
+        @post = current_user.posts.build 
     end
 
     def create
@@ -19,7 +22,7 @@ class PostsController < ApplicationController
 
     # 自分の個別
     def show
-        @post = current_user.posts.find(params[:id])
+        @post = Post.find(params[:id])
     end
 
     def edit
