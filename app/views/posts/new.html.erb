@@ -5,15 +5,18 @@
     <div id="errors"></div>
     <% if @image != nil %>
       <%= image_tag @image %>
+    <% else %>
+      <%= image_tag 'no_image.png', :size => '120x120' %>
     <% end %>
     
-    <%= f.hidden_field :image, value: @image %>
+    <%= f.hidden_field :image_url, value: @image %>
     <h5><%= @title %></h5>
     <%= f.hidden_field :name, value: @title%>
 
     <% @author.each do |author| %>
       <%= author %>
     <% end %>
+
     <%= f.hidden_field :author, value: @author %>
  
     <div class="form-group">
@@ -22,7 +25,7 @@
     </div>
     <div class="form-group">
       <%= f.label :content_public %>
-      <%= f.text_field :content_private, class: "form-control" %>
+      <%= f.text_field :content_public, class: "form-control" %>
     </div>
     <%= f.submit class: "btn btn-primary" %>
   <% end %>

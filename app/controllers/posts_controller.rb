@@ -11,7 +11,7 @@ class PostsController < ApplicationController
         @post = current_user.posts.build(post_params)
 
         if @post.save
-            redirect_to root_path
+            redirect_to @current_user
         end
     end
 
@@ -39,13 +39,13 @@ class PostsController < ApplicationController
     def destroy
         @post = current_user.posts.find(params[:id])
         @post.destroy!
-        redirect_to root_path, notice: "削除しました"
+        redirect_to current_user, notice: "削除しました"
     end
 
     private
     def post_params
         params.require(:post).permit(
-            :name, :content_private, :content_public
+            :name, :content_private, :content_public, :author, :image_url
         ).merge(user_id: current_user.id )
     end
 end

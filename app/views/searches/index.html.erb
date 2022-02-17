@@ -17,7 +17,7 @@
             <div class="row">
                 <div classs="col">
                     <% if @image == nil %>
-                        <h5>NoImage</h5>
+                        <%= image_tag 'no_image.png', :size => '120x120' %>
                     <% else %>
                         <%= image_tag @image %>
                     <% end %>

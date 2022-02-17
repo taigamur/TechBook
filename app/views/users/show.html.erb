@@ -24,8 +24,11 @@
             <div class="post-list">
             <% @posts.each do |post| %>
                     <%= link_to(post, class:"list-group-item list-group-item action") do %>
+                        <% if post.image_url != nil %>
+                            <%= image_tag post.image_url %>
+                        <% end %>
                         <%= post.name %>
-                        <%= post.content_public %>
+                        <%= post.author %>
                     <% end %>
             <% end %>
             </div>
