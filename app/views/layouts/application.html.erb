@@ -23,14 +23,12 @@
         </div>
         <hr>
 
-        <%= link_to "ホームに戻る", root_path %>
-        <%= link_to "ログアウト", log_out_path, data: {confirm: "ログアウトしますか？" }%>
-        <%= link_to "新規投稿", new_post_path %>
-        <%= link_to 'マイプロフィール', home_path(id: current_user.id) %>
-        <%= link_to "マイライブラリ", posts_path(id: current_user.id) %>
-        <%= link_to "本を探す", new_search_path %>
-        <%= link_to "ブックマーク", ' ' %>
-        <%= link_to "ユーザー一覧", users_path %>
+        <%= link_to "Home", root_path %>
+        <%= link_to "Logout", log_out_path, data: {confirm: "ログアウトしますか？" }%>
+        <%= link_to 'MyProfile', home_path(id: current_user.id) %>
+        <%= link_to "Post", new_search_path %>
+        <%= link_to "Bookmark", ' ' %>
+        <%= link_to "All Users", users_path %>
         <%= link_to "MyPage", user_path(id: current_user.id) %>
 
         <hr>

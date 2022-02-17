@@ -1,10 +1,39 @@
 <div class="container">
     <h1>検索結果</h1>
-    <% @api_params['Items'].each do |api| %>
-        <%= link_to(new_post_path(name: api['Item']['title'], author: api['Item']['author']), 
-            class:"list-group-item  action") do %>
-            <%= image_tag api['Item']['mediumImageUrl'] %>
-            <%= api['Item']['title'] %> , <%= api['Item']['author'] %>
+
+    <% @api_params['items'].each do |api| %>
+
+        <% @title = api['volumeInfo']['title'] %>
+        <% @author =  api['volumeInfo']['authors'] %>
+        <% if api['volumeInfo']['imageLinks'] %>
+            <% @image = api['volumeInfo']['imageLinks']['thumbnail'] %>
+        <% else %>
+            <% @image = nil %>
         <% end %>
-    <% end %>
+
+        <%= link_to(new_post_path(name: @title, author: @author, image: @image ), 
+            class:"list-group-item  action") do %>
+
+            <div class="row">
+                <div classs="col">
+                    <% if @image == nil %>
+                        <h5>NoImage</h5>
+                    <% else %>
+                        <%= image_tag @image %>
+                    <% end %>
+                </div>
+                <div class="col">
+                <div><h5>Title: <%= @title %></h5></div>
+                    <div>
+                        Author:
+                        <% if @author != nil %>
+                            <% @author.each do |author| %>
+                                <%= author %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %> 
 </div>

@@ -1,12 +1,21 @@
 <div class="container">
-  <h1>新規投稿</h1>
-  name: <%= @title %>, author: <%= @author %>
+  <h1>New Post</h1>
+
   <%= form_with(model: @post, class: "form-horizontal") do |f| %>
     <div id="errors"></div>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, value: @title ,class: "form-control" %>
-    </div>
+    <% if @image != nil %>
+      <%= image_tag @image %>
+    <% end %>
+    
+    <%= f.hidden_field :image, value: @image %>
+    <h5><%= @title %></h5>
+    <%= f.hidden_field :name, value: @title%>
+
+    <% @author.each do |author| %>
+      <%= author %>
+    <% end %>
+    <%= f.hidden_field :author, value: @author %>
+ 
     <div class="form-group">
       <%= f.label :content_private %>
       <%= f.text_field :content_private, class: "form-control" %>

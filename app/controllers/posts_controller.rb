@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     def new
         @title = params[:name]
         @author = params[:author]
-        @image_url = params[:image]
+        @image = params[:image]
         @post = current_user.posts.build 
     end
 
