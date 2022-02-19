@@ -1,37 +1,37 @@
-<div class="row">
-    <div class="col-md-4 col-sm-12">
-        <div class="container">
-            <h1>ユーザーid: <%= @user.id%><h1>
+<div class="container">
 
-            <h5>Email</h5> 
-            <%= @user.email %>
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
 
-            <h5>User名</h5>
+            <h5>User Name</h5>
             <% if @user.name == nil %>
             name: null
             <% end %>
+            <h5><%= @user.name %></h5>
 
-            <%= @user.name %>
-            
             following: <%= @user.following.count %> , followers: <%= @user.followers.count %>
             
             <%= render 'follow_form' %>
         </div>
-    </div>
-    <div class="col-md-8 col-sm-12">
-        <div class="container">
+        <div class="col-md-8 col-sm-12">
             <h3>MyPost</h3>
             <div class="post-list">
-            <% @posts.each do |post| %>
-                    <%= link_to(post, class:"list-group-item list-group-item action") do %>
-                        <% if post.image_url != nil %>
-                            <%= image_tag post.image_url %>
+                <% @posts.each do |post| %>
+                        <%= link_to(post, class:"list-group-item list-group-item action") do %>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6">
+                                    <% if post.image_url != nil %>                             
+                                        <%= image_tag post.image_url, :width => '100%'%>
+                                    <% end %>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                <%= post.name %>
+                                <%= post.author %>
+                                </div>
+                            </div>
                         <% end %>
-                        <%= post.name %>
-                        <%= post.author %>
-                    <% end %>
-            <% end %>
+                <% end %>
             </div>
-        </div>
+        <div>
     </div>
 </div>
