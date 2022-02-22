@@ -1,20 +1,21 @@
 <div class="container">
 
-<h1>My Profile<h1>
+<div class="home-profile ">
+    <h1>My Profile<h1>
 
-<h5>Email</h5> 
-<%= current_user.email %>
-
-
-<h5>User Name</h5>
-<% if current_user.name == nil %>
-name: null
-<% end %>
-<%= current_user.name %>
-
-<h5>コメント</h5>
+    <h5>Email</h5> 
+    <%= current_user.email %>
 
 
-<%= link_to "ユーザー情報の変更", edit_user_path(id: current_user.id) %>
+    <h5>User Name</h5>
+    <% if current_user.name == nil %>
+    name: null
+    <% end %>
+    <%= current_user.name %>
 
+    <h5>コメント</h5>
+
+
+    <%= link_to "ユーザー情報の変更", edit_user_path(id: current_user.id) %>
+</div>
 </div>

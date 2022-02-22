@@ -44,16 +44,22 @@
             </div>
           </div>
         </nav>
+      <% else %>
+
       <% end %>
     </header>
   
   <body>
-   
+
+      <div class="container main">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-success"><%= message %></div>
       <% end %>
-
+      </div>
+      
+      <div class="container">
       <%= yield %>
+      </div>
 
   </body>
 </html>
