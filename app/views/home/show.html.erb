@@ -1,5 +1,6 @@
-<h1>マイプロフィール<h2>
+<div class="container">
 
+<h1>My Profile<h1>
 
 <h5>Email</h5> 
 <%= current_user.email %>
@@ -15,3 +16,5 @@ name: null
 
 
 <%= link_to "ユーザー情報の変更", edit_user_path(id: current_user.id) %>
+
+</div>

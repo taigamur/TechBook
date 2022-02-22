@@ -1,7 +1,8 @@
-
-<% @users.each do |user| %>
-    <%= link_to(user, class:"list-group-item action") do %>
-        <%= user.email %>さん
+<div class="container">
+    <h1>User List</h1>
+    <% @users.each do |user| %>
+        <%= link_to(user, class:"list-group-item action") do %>
+            <%= user.email %>さん
+        <% end %>
     <% end %>
-<% end %>
-
+</div>
