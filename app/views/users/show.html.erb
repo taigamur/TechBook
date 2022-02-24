@@ -26,7 +26,7 @@
             <div class="post-list">
                 <% @posts.each do |post| %>
                     <div class="post-each">
-                        <%= link_to(post, class:" action") do %>
+                        <%= link_to(post, class:"btn") do %>
                             <div class="row">
                                 <div class="col-md-4 col-sm-6">
                                     <% if post.image_url != nil %>                             
@@ -34,8 +34,7 @@
                                     <% end %>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                <%= post.name %>
-                                <%= post.author %>
+                                <h5><%= post.name %></h5>
                                 </div>
                             </div>
                         <% end %>

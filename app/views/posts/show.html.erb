@@ -1,35 +1,29 @@
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-3">
-            <%= image_tag @post.image_url , :width => '100%'%>
-        </div>
-        <div class="col-md-1">
-            
-        </div>
-        <div class="col-md-7">
-            Title:
-            <h5><%= @post.name %><h5>
-            Author:
-            <h5><%= @post.author %></h5>
-        
-            <h3>content_public</h3> 
-            <div>
-                <%= @post.content_public %>
-            </div>
-
-            <% if @post.user_id == current_user.id %>
-                    <h3>content_private</h3>
-                    <div>
-                        content_private: <%= @post.content_private %>
-                    </div>
-            <% end %>
-
-            <% if @post.user_id == current_user.id %>
-                <%= link_to "投稿の編集", edit_post_path(@post) , class: "btn btn-primary" %>
-                <%= link_to "投稿の削除", post_path(@post), method: :delete , data: {confirm: "削除しますか？" }, class: "btn btn-primary" %>
-            <% end %>
-        </div>
+<div class="row">
+    <div class="col-md-3">
+        <%= image_tag @post.image_url , :width => '100%'%>
     </div>
-
+    <div class="col-md-9">
+        Title:
+        <h5><%= @post.name %><h5>
+        Author:
+        <h5><%= @post.author %></h5>
+    </div>
 </div>
+
+
+<h3>Public Comment</h3> 
+<div>
+    <%= @post.content_public %>
+</div>
+
+<% if @post.user_id == current_user.id %>
+    <h3>Private Comment</h3>
+    <div>
+        <%= @post.content_private %>
+    </div>
+<% end %>
+
+<% if @post.user_id == current_user.id %>
+    <%= link_to "投稿の編集", edit_post_path(@post) , class: "btn btn-primary" %>
+    <%= link_to "投稿の削除", post_path(@post), method: :delete , data: {confirm: "削除しますか？" }, class: "btn btn-primary" %>
+<% end %>

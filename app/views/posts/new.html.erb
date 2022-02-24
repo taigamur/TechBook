@@ -1,34 +1,50 @@
-<div class="container">
-  <h1>New Post</h1>
+<%= link_to "back", new_search_path, class: "btn btn-outline-secondary" %>
 
-  <%= form_with(model: @post, class: "form-horizontal") do |f| %>
-    <div id="errors"></div>
+<h1>New Post</h1>
+
+<div class="row">
+  <div class="col-md-3">
     <% if @image != nil %>
-      <%= image_tag @image %>
+      <%= image_tag @image, :width => '100%' %>
     <% else %>
       <%= image_tag 'no_image.png', :size => '120x120' %>
     <% end %>
-    
-    <%= f.hidden_field :image_url, value: @image %>
-    <h5><%= @title %></h5>
-    <%= f.hidden_field :name, value: @title%>
+  </div>
 
+  <div class="col-md-9">
+    Title:
+    <h5><%= @title %></h5>
+    Author:
+    <h5>
     <% @author.each do |author| %>
       <%= author %>
     <% end %>
-
-    <%= f.hidden_field :author, value: @author %>
- 
-    <div class="form-group">
-      <%= f.label :content_private %>
-      <%= f.text_field :content_private, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :content_public %>
-      <%= f.text_field :content_public, class: "form-control" %>
-    </div>
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
-  
-  <%= link_to "戻る", new_search_path %>
+    </h5>
+  </div>
 </div>
+
+
+<%= form_with(model: @post, class: "form-horizontal new-form-pos") do |f| %>
+  <div id="errors"></div>
+
+  <%= f.hidden_field :image_url, value: @image %>
+
+  <%= f.hidden_field :name, value: @title%>
+
+  <%= f.hidden_field :author, value: @author %>
+
+    <div class="form-group">
+    <%= f.label :content_public, "Public Comment" %>
+    <%= f.text_area :content_public, class: "form-control", size:"5x5" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content_private, "Private Comment" %>
+    <%= f.text_area :content_private, class: "form-control", size:"5x5" %>
+  </div>
+
+
+  <%= f.submit class: "btn btn-outline-primary" %>
+<% end %>
+
+
