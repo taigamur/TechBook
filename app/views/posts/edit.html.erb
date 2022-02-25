@@ -1,17 +1,79 @@
-<h3>投稿の編集</h3>
+<h3>Edit a post</h3>
 <%= form_with(model: @post, class: "form-horizontal") do |f| %>
-  <div id="errors"></div>
-  Title:
-  <%= @post.name %>
-  <h3><%= f.hidden_field :name, value: @post.name%></h3>
 
+  <div class="row">
+    <div class="col-md-3">
+      <% if @post.image_url != nil %>
+        <%= image_tag @post.image_url, :width => '100%' %>
+      <% else %>
+        <%= image_tag 'no_image.png', :size => '120x120' %>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      Title:
+      <h5><%= @post.name %></h5>
+      Author
+      <h5><%= @post.author %></h5>
+    </div>
+  </div>
+
+  <%= f.label :point, "Point"%>
+  <% if @post.errors[:point].size != 0 %>
+    <div class="alert alert-danger">
+      <%= "Point can't be blank" %>
+    </div>
+  <% end %>
+  <div class="radio">
+    <label class="radio-inline">
+    <%= f.radio_button :point, "1"%><span>1</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :point, "2"%><span>2</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :point, "3"%><span>3</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :point, "4"%><span>4</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :point, "5"%><span>5</span>
+    </label>
+  </div>
+
+  <%= f.label :difficulty, "Difficulty"%>
+  <% if @post.errors[:difficulty].size != 0 %>
+    <div class="alert alert-danger">
+      <%= "Difficulty can't be blank" %>
+    </div>
+  <% end %>
+  <div class="radio">
+    <label class="radio-inline">
+    <%= f.radio_button :difficulty, "1"%><span>1</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :difficulty, "2"%><span>2</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :difficulty, "3"%><span>3</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :difficulty, "4"%><span>4</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :difficulty, "5"%><span>5</span>
+    </label>
+  </div>
+
+  <h3><%= f.hidden_field :name, value: @post.name%></h3>
+  <div class="form-group">
+    <%= f.label :content_public %>
+    <%= f.text_field :content_public, class: "form-control" %>
+  </div>
   <div class="form-group">
     <%= f.label :content_private %>
     <%= f.text_field :content_private, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :content_public %>
-    <%= f.text_field :content_private, class: "form-control" %>
-  </div>
+
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

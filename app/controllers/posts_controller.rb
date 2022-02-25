@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
     def new
         @title = params[:name]
-        @author = params[:author]
+        @author = params[:author].join(' ')
         @image = params[:image]
         @post = current_user.posts.build 
     end
@@ -10,21 +10,22 @@ class PostsController < ApplicationController
     def create
         @post = current_user.posts.build(post_params)
 
-
-        @title = params[:name]
-        @author = params[:author]
-        @image = params[:image]
-        
         if @post.save
             redirect_to @current_user
         else
-           redirect_to new_post_path
+            @title = @post.name
+            @author = @post.author
+            @image = @post.image_url
+            if @title == nil
+                redirect_to new_search_path
+            else
+                render "/posts/new"
+            end
         end
     end
 
-    # 自分のリスト
     def index
-        @posts = current_user.posts
+        redirect_to new_search_path
     end
 
     # 自分の個別
@@ -39,7 +40,9 @@ class PostsController < ApplicationController
     def update
         @post = current_user.posts.find(params[:id])
         if @post.update(post_params)
-            redirect_to @post, notice: "Updated"
+            redirect_to @current_user, notice: "Updated"
+        else
+            render '/posts/edit'
         end
     end
 

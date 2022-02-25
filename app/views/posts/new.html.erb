@@ -15,37 +15,23 @@
     Title:
     <h5><%= @title %></h5>
     Author:
-    <h5>
-    <% if @author != nil %>
-      <% @author.each do |author| %>
-        <%= author %>
-      <% end %>
-    <% end %>
-    </h5>
+    <h5><%= @author %></h5>
   </div>
 </div>
 
 
 <%= form_with(model: @post, class: "form-horizontal new-form-pos", local: true) do |f| %>
 
-  <% if @post.errors.any? %>
-    <div class="alert alert-danger">
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <%= f.hidden_field :image_url, value: @image %>
-
   <%= f.hidden_field :name, value: @title%>
-
   <%= f.hidden_field :author, value: @author %>
 
-  
   <%= f.label :point, "Point"%>
+  <% if @post.errors[:point].size != 0 %>
+    <div class="alert alert-danger">
+      <%= "Point can't be blank" %>
+    </div>
+  <% end %>
   <div class="radio">
     <label class="radio-inline">
     <%= f.radio_button :point, "1"%><span>1</span>
@@ -65,6 +51,11 @@
   </div>
 
   <%= f.label :difficulty, "Difficulty"%>
+  <% if @post.errors[:difficulty].size != 0 %>
+    <div class="alert alert-danger">
+      <%= "Difficulty can't be blank" %>
+    </div>
+  <% end %>
   <div class="radio">
     <label class="radio-inline">
     <%= f.radio_button :difficulty, "1"%><span>1</span>
