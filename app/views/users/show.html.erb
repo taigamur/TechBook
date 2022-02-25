@@ -11,7 +11,7 @@
                     <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
                 </svg>
                 <%= @user.following.count %>
-                <%= link_to "following", "#" %>
+                <%= link_to "following", following_path(id: @user.id ) %>
                 ・
                 <%= @user.followers.count %>
                 <%= link_to "followers", '#' %>

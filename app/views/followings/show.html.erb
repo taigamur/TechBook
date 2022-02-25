@@ -1,0 +1,9 @@
+<%= @user.name %>のフォローしている人
+
+<ul class="list-group list-group-flush">
+    <% @users.each do |user| %>
+        <%= link_to(user, class:"btn") do %>
+            <li class="list-group-item"><%= user.name %></li>
+        <% end %>
+    <% end %>
+</ul>

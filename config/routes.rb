@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :users
   resources :searches
   resources :relationships
+  resources :followings
+  resources :followers
 end
