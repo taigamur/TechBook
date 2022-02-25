@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     end
 
     def index
-        redirect_to new_search_path
+        
     end
 
     # 自分の個別
