@@ -14,7 +14,7 @@
                 <%= link_to "following", following_path(id: @user.id ) %>
                 ・
                 <%= @user.followers.count %>
-                <%= link_to "followers", '#' %>
+                <%= link_to "followers", follower_path(id: @user.id) %>
             </div>
             <%= render 'follow_form' %>
 
