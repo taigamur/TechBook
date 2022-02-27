@@ -9,7 +9,6 @@ class PostsController < ApplicationController
 
     def create
         @post = current_user.posts.build(post_params)
-
         if @post.save
             redirect_to @current_user
         else
@@ -25,7 +24,8 @@ class PostsController < ApplicationController
     end
 
     def index
-        
+        # フォローしている人全員の投稿
+        @posts = Post.where(user_id: [*current_user.following.ids, current_user.id]).order(id: "DESC")
     end
 
     # 自分の個別

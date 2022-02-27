@@ -42,7 +42,7 @@
               <div class="dropdown-menu dropdown-menu-right">
                 <%= link_to "MyProfile", home_path(id: current_user.id), class: "dropdown-item" %>
                 <%= link_to "MyPage", user_path(id: current_user.id), class: "dropdown-item" %>
-                <%= link_to "Logout", log_out_path, class: "dropdown-item", data: { confirm: "ログアウトしますか？"}  %>
+                <%= link_to "Logout", log_out_path, class: "dropdown-item" %>  <!-- , data: { confirm: "ログアウトしますか？"} -->
               </div>
             </div>
           </div>

@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     def update
         @user = current_user
         if @user.update(user_params)
-            redirect_to @user, notice: "更新しました"
+            redirect_to @user, notice: "Updated"
         end
     end
 
