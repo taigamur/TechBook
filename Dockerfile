@@ -31,5 +31,12 @@ RUN bundle install
 # ホストのアプリケーションディレクトリ内をすべてコンテナにコピー
 ADD . /myapp
 
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+
+VOLUME /myapp/public
+VOLUME /app/tmp
+
 # puma.sockを配置するディレクトリを作成
 RUN mkdir -p tmp/sockets

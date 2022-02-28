@@ -5,34 +5,34 @@ services:
     build:
       context: .
     # ローカルと本番の切り替え 
-    # command: bundle exec puma -C config/puma.rb -e production
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e production
+    # command: bundle exec puma -C config/puma.rb
     # ========================
-    volumes:
-      - .:/myapp
-      - public-data:/myapp/public
-      - tmp-data:/myapp/tmp
-      - log-data:/myapp/log
-    networks:
-      - myapp-network
+  #   volumes:
+  #     - .:/myapp
+  #     - public-data:/myapp/public
+  #     - tmp-data:/myapp/tmp
+  #     - log-data:/myapp/log
+  #   networks:
+  #     - myapp-network
 
-  # ローカルの場合はコメントアウトを解除
-    depends_on:
-      - db
+  # # ローカルの場合はコメントアウトを解除
+  #   depends_on:
+  #     - db
 
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: myapp_development
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - myapp-network
+  # db:
+  #   image: mysql:5.7
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_DATABASE: myapp_development
+  #     MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  #   command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  #   volumes:
+  #     - db-data:/var/lib/mysql
+  #   networks:
+  #     - myapp-network
   # ================================= 
 
   web:
