@@ -6,7 +6,7 @@ default: &default
 # PasswordとUsernameはdocker-compose.ymlと合わせます
   username: root
   password: password
-  host: book_db
+  host: book
 
 development:
   <<: *default

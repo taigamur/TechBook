@@ -1,8 +1,0 @@
-DB_USERNAME=admin
-
-DB_PASSWORD=password
-DB_HOST='book.cen0naxdumds.ap-northeast-1.rds.amazonaws.com'
-DB_DATABASE=book_db
-
-GOOGLE_CLIENT_ID=649749591451-djfj0pr3lkcmsjh8dhc7n9iis4pgf53i.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=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
