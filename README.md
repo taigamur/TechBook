@@ -1,4 +1,4 @@
-# アプリケーション名 未定
+# TechBookCareer
 
 ## 内容
 エンジニアのための、技術書の共有アプリケーション
@@ -16,3 +16,8 @@
 * これまでに読んだ技術書を自分で管理したい人。
 
 2022/02/09 開発開始
+
+* docker-compose build
+* docker network create myapp-network
+* docker-compose run app rails assets:precompile RAILS_ENV=production
+* docker-compose up
