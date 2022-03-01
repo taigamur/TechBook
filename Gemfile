@@ -28,6 +28,7 @@ gem 'httpclient'
 #add
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
+gem "nokogiri", ">= 1.13.2"
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
