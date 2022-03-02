@@ -1,11 +1,21 @@
-<h1>followしている人全員の投稿</h1>
-
 <% @posts.each do |post| %>
+
     <div class="post-each">
-        <%= link_to(user_path(id: post.user_id), class:"btn") do %>
-            <%= image_tag post.image_url %>
-            <%= User.find(post.user_id).name %>
-            <%= post.name %>
+        <%= link_to(post, class:"btn post-index") do %>     
+            <div class="row">
+                <div class="col-md-9">
+                    <h5><%= truncate(User.find(post.user_id).name, :length => 10)%>
+                    <h5><%= truncate(post.name, :length => 30) %></h5>
+                    
+                    <%= post.created_at %>
+                </div>
+                <div class="col-md-3">
+                    <% if post.image_url != nil %>                             
+                        <%= image_tag post.image_url, :height => '100%'%>
+                    <% end %>
+                </div>
+            
+            </div>
         <% end %>
     </div>
 <% end %>

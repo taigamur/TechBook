@@ -20,27 +20,25 @@
 
         </div>
 
-        <div class="col-lg-8 col-md-8 col-sm-12">
+        <div class="col-md-8">
             <h3><span class="badge badge-secondary"><%= @posts.size %> Posts</span></h3>
-
-            <div class="post-list">
                 <% @posts.each do |post| %>
-                    <div class="post-each">
-                        <%= link_to(post, class:"btn") do %>
+                    <div class="user-post-each">
+                        <%= link_to(post, class:"btn user-post-list") do %>
                             <div class="row">
-                                <div class="col-md-4 col-sm-6">
+                                <div class="col-md-8">
+                                    <h5><%= truncate(post.name, :length => 20) %></h5>
+                                    <%= post.created_at %>
+                                </div>
+                                <div class="col-md-4">
                                     <% if post.image_url != nil %>                             
                                         <%= image_tag post.image_url, :width => '100%'%>
                                     <% end %>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                <h5><%= post.name %></h5>
                                 </div>
                             </div>
                         <% end %>
                     </div>
                 <% end %>
-            </div>
         <div>
     </div>
 </div>

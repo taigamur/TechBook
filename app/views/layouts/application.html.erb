@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-    <title>MyBookApp</title>
+    <title>TechBookCareer</title>
       <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,10 +15,12 @@
     <header>
       <% if current_user %>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href=<%= root_path%>>BookHub</a>
+          <a class="navbar-brand" href=<%= posts_path %>>TechBookCareer</a>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-  
+              <li class="nav-item">
+                  <a class="nav-link" href=<%= posts_path %>>Home</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href=<%= user_path(id: current_user.id)%>>MyPage</a>
               </li>
@@ -30,9 +32,6 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href=<%= new_search_path %>>New Post</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href=<%= posts_path %>>Show Index</a>
               </li>
             </ul>
             <div class="btn-group">
@@ -63,7 +62,7 @@
       </div>
       
       <div class="container">
-      <%= yield %>
+        <%= yield %>
       </div>
 
   </body>
