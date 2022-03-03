@@ -6,8 +6,15 @@
                 <div class="col-md-9">
                     <h5><%= truncate(User.find(post.user_id).name, :length => 10)%>
                     <h5><%= truncate(post.name, :length => 30) %></h5>
-                    
-                    <%= post.created_at %>
+                        <!--左余白の問題あり-->
+                        <div class="rate-space ">
+                            <span class="difficulty">difficulty <span> <span class="rate rate<%= post.difficulty %>"><span>
+                        </div>                        
+                        <div class="rate-space ">
+                            <span class="recommendation">recommendation <span><span class="rate rate<%= post.point %>"><span>
+                        </div>
+
+                        <span class="post_time"><%= get_elapsed_time(post.created_at) %><span>
                 </div>
                 <div class="col-md-3">
                     <% if post.image_url != nil %>                             

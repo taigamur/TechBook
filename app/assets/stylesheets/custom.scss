@@ -9,3 +9,81 @@ footer{
 body{
     font-family: 'cursive';
 }
+
+//レート評価 変数
+$starFull: 16px;//星1個の幅
+$rate1: $starFull;//星1
+$rate2: $starFull * 2;//星2
+$rate3: $starFull * 3;//星3
+$rate4: $starFull * 4;//星4
+$rate5 :$starFull * 5;//星5
+
+
+.rate-space{
+//    padding-left: 30px;
+}
+.rate{
+  position: relative;
+  display: inline-block;
+  width: $starFull * 5;
+  height: $starFull;
+  font-size: $starFull;
+  &:before,&:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '★★★★★';
+    display: inline-block;
+    height: $starFull;
+    line-height: $starFull;
+  }
+  &:before{
+  color: #ddd;
+  }
+  &:after{
+  color: #ffa500;
+  overflow: hidden;
+  }
+}
+
+.difficulty{
+    display: inline-block;
+    opacity: 80%;
+    padding-left: e30px;
+}
+.recommendation{
+    display: inline-block;
+    opacity: 80%;
+    margin-right: 20px;
+}
+
+.rate1:after{//星1
+  width: $rate1;
+}
+.rate2:after{//星2
+  width: $rate2;
+}
+.rate3:after{//星3
+  width: $rate3;
+}
+.rate4:after{//星4
+  width: $rate4;
+}
+.rate5:after{//星5
+  width: $rate5;
+}
+
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.image {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
