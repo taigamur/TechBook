@@ -18,22 +18,22 @@ services:
 
   # ローカルの場合はコメントアウトを解除
   # ================================
-  #   depends_on:
-  #     - db
+    depends_on:
+      - db
 
-  # db:
-  #   image: mysql:5.7
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: password
-  #     MYSQL_USER: user
-  #     MYSQL_PASSWORD: password
-  #     MYSQL_DATABASE: myapp_development
-  #     MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-  #   command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-  #   volumes:
-  #     - db-data:/var/lib/mysql
-  #   networks:
-  #     - myapp-network
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: myapp_development
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - myapp-network
   # ================================= 
 
   web:
