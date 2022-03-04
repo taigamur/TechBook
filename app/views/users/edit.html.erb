@@ -1,9 +1,16 @@
 <h1>Edit Profile</h1>
 
+<% if @user.image.attached? %>
+    <%= image_tag @user.image, class:"prof_image" %>
+<% end %>
+
 <%= form_with(model: @user,class: "form-horizontal") do |f| %>
     <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :image, "icon" %>
+        <%= f.file_field :image, class:"form-control-file"%>
+        <%= f.label :name, 'user_name' %>
         <%= f.text_field :name, class:"form-control" %>
+
     </div>
     <%= f.submit "update",  class: "btn btn-primary" %>
 <% end %>

@@ -8,7 +8,12 @@ class User < ApplicationRecord
                                      dependent:   :destroy
     has_many :following, through: :active_relationships,  source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
-    
+    has_one_attached :image
+
+    validates :image, content_type:{in:%w[image/jpeg image/gif image/png],
+                message:"must be a valid image format"},
+                size: {less_than: 5.megabytes,
+                message: "should be less than 5MB"}
 
     def self.find_or_create_from_auth_hash(auth_hash)
         email = auth_hash[:info][:email]
@@ -28,6 +33,7 @@ class User < ApplicationRecord
     def following?(other_user)
         following.include?(other_user)
     end
+
 
 
 end
