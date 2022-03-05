@@ -10,10 +10,16 @@
         <div class="rate-space ">
             <span class="difficulty">difficulty:<span>
             <span class="rate rate<%= @post.difficulty %>"><span>
-        </div>                        
+        </div>    
+        <div class="rate-space">
+            <span class="vaolume">volume:<span>
+            <span class="rate rate<%= @post.volume %>"><span>
+        </div>                    
         <div class="rate-space">
             <span class="recommendation">recommendation:<span>
-            <span class="rate rate<%= @post.point %>"><span></div>
+            <span class="rate rate<%= @post.point %>"><span>
+        </div>
+
         <span class="post_time"><%= get_elapsed_time(@post.created_at) %><span>
     </div>
     <div class="col-md-3">
@@ -26,17 +32,10 @@
 <div class="row post_show_comment">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <h3>Public Comment</h3> 
+        <h3>Comment</h3> 
         <div>
             <%= @post.content_public %>
         </div>
-
-        <% if @post.user_id == current_user.id %>
-            <h3>Private Comment</h3>
-            <div>
-                <%= @post.content_private %>
-            </div>
-        <% end %>
 
         <% if @post.user_id == current_user.id %>
             <div class="option-btn">

@@ -22,6 +22,22 @@
     opacity: 50%;
 }
 
+.prof_image_post_index{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    filter: drop-shadow(0 0 3px rgb(77, 71, 72));
+}
+  
+.post_prof_pos{
+    margin: auto;
+}
+
+.post_index_pos{
+    margin: auto;
+}
+
 
 // #show
 .post_show{
@@ -32,3 +48,4 @@
     padding-top: 30px;
     width: 100%;
 }
+

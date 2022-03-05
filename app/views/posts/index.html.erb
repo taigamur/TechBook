@@ -3,13 +3,21 @@
     <div class="post-each">
         <%= link_to(post, class:"btn post-index") do %>     
             <div class="row">
-                <div class="col-md-9">
-                    <h5><%= truncate(User.find(post.user_id).name, :length => 10)%>
+                <div class="col-md-3 post_prof_pos">
+                    <% if User.find(post.user_id).image.attached? %>
+                        <%= image_tag User.find(post.user_id).image, class:"prof_image_post_index" %>
+                    <% end %>
+                    <h5><%= truncate(User.find(post.user_id).name, :length => 15)%></h5>
+                </div>
+                <div class="col-md-6 post_index_pos" >
                     <h5><%= truncate(post.name, :length => 30) %></h5>
                         <!--左余白の問題あり-->
                         <div class="rate-space ">
                             <span class="difficulty">difficulty <span> <span class="rate rate<%= post.difficulty %>"><span>
-                        </div>                        
+                        </div>
+                        <div class="rate-space ">
+                            <span class="difficulty">volume <span> <span class="rate rate<%= post.volume %>"><span>
+                        </div>                           
                         <div class="rate-space ">
                             <span class="recommendation">recommendation <span><span class="rate rate<%= post.point %>"><span>
                         </div>

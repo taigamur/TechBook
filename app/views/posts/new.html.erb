@@ -49,6 +49,30 @@
     </label>
   </div>
 
+  <%= f.label :volume, "Volume"%>
+  <% if @post.errors[:volume].size != 0 %>
+    <div class="alert alert-danger">
+      <%= "Volume can't be blank" %>
+    </div>
+  <% end %>
+  <div class="radio">
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "1"%><span>1</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "2"%><span>2</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "3"%><span>3</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "4"%><span>4</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "5"%><span>5</span>
+    </label>
+  </div>
+
   <%= f.label :difficulty, "Difficulty"%>
   <% if @post.errors[:difficulty].size != 0 %>
     <div class="alert alert-danger">
@@ -74,18 +98,10 @@
   </div>
       
   
-  
-  
   <div class="form-group">
-    <%= f.label :content_public, "Public Comment" %>
+    <%= f.label :content_public, "Comment" %>
     <%= f.text_area :content_public, class: "form-control", size:"5x5" %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :content_private, "Private Comment" %>
-    <%= f.text_area :content_private, class: "form-control", size:"5x5" %>
-  </div>
-
 
   <%= f.submit class: "btn btn-outline-primary" %>
 <% end %>
