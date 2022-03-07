@@ -20,3 +20,13 @@
     padding: 20px;
     border-top: solid 1px#C0C0C0	;
 }
+
+// プロフィール画像
+.prof_image{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    filter: drop-shadow(0 0 1px rgb(77, 71, 72));
+  }
+  

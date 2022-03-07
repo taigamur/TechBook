@@ -25,55 +25,7 @@
   <%= f.hidden_field :name, value: @title%>
   <%= f.hidden_field :author, value: @author %>
 
-  <%= f.label :point, "Point"%>
-  <% if @post.errors[:point].size != 0 %>
-    <div class="alert alert-danger">
-      <%= "Point can't be blank" %>
-    </div>
-  <% end %>
-  <div class="radio">
-    <label class="radio-inline">
-    <%= f.radio_button :point, "1"%><span>1</span>
-    </label>
-    <label class="radio-inline">
-    <%= f.radio_button :point, "2"%><span>2</span>
-    </label>
-    <label class="radio-inline">
-    <%= f.radio_button :point, "3"%><span>3</span>
-    </label>
-    <label class="radio-inline">
-    <%= f.radio_button :point, "4"%><span>4</span>
-    </label>
-    <label class="radio-inline">
-    <%= f.radio_button :point, "5"%><span>5</span>
-    </label>
-  </div>
-
-  <%= f.label :volume, "Volume"%>
-  <% if @post.errors[:volume].size != 0 %>
-    <div class="alert alert-danger">
-      <%= "Volume can't be blank" %>
-    </div>
-  <% end %>
-  <div class="radio">
-    <label class="radio-inline">
-    <%= f.radio_button :volume, "1"%><span>1</span>
-    </label>
-    <label class="radio-inline">
-    <%= f.radio_button :volume, "2"%><span>2</span>
-    </label>
-    <label class="radio-inline">
-    <%= f.radio_button :volume, "3"%><span>3</span>
-    </label>
-    <label class="radio-inline">
-    <%= f.radio_button :volume, "4"%><span>4</span>
-    </label>
-    <label class="radio-inline">
-    <%= f.radio_button :volume, "5"%><span>5</span>
-    </label>
-  </div>
-
-  <%= f.label :difficulty, "Difficulty"%>
+  <%= f.label :difficulty, "difficulty"%>
   <% if @post.errors[:difficulty].size != 0 %>
     <div class="alert alert-danger">
       <%= "Difficulty can't be blank" %>
@@ -97,6 +49,54 @@
     </label>
   </div>
       
+  <%= f.label :volume, "volume"%>
+  <% if @post.errors[:volume].size != 0 %>
+    <div class="alert alert-danger">
+      <%= "Volume can't be blank" %>
+    </div>
+  <% end %>
+  <div class="radio">
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "1"%><span>1</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "2"%><span>2</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "3"%><span>3</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "4"%><span>4</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :volume, "5"%><span>5</span>
+    </label>
+  </div>
+
+  <%= f.label :point, "recommendation"%>
+  <% if @post.errors[:point].size != 0 %>
+    <div class="alert alert-danger">
+      <%= "Point can't be blank" %>
+    </div>
+  <% end %>
+  <div class="radio">
+    <label class="radio-inline">
+    <%= f.radio_button :point, "1"%><span>1</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :point, "2"%><span>2</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :point, "3"%><span>3</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :point, "4"%><span>4</span>
+    </label>
+    <label class="radio-inline">
+    <%= f.radio_button :point, "5"%><span>5</span>
+    </label>
+  </div>
+
   
   <div class="form-group">
     <%= f.label :content_public, "Comment" %>
