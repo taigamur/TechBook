@@ -33,7 +33,7 @@
                             <div class="rate-space ">recommendation <span class="rate rate<%= post.point %>"><span></div>
                             <span class="post_time"><%= get_elapsed_time(post.created_at) %><span>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <% if post.image_url != nil %>                             
                                 <%= image_tag post.image_url, :width => '100%'%>
                             <% end %>

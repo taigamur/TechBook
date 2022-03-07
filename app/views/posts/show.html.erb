@@ -1,11 +1,13 @@
 <div class="row post_show">
-    <div class="col-md-1"></div>
-    <div class="col-md-7">
+    <div class="col-md-3 post_show_profile">
+        <% if User.find(@post.user_id).image.attached? %>
+            <%= image_tag User.find(@post.user_id).image, class:"prof_image_post_show" %>
+        <% end %>
         <h5><%= User.find(@post.user_id).name%></h5>
-    
+    </div>
+    <div class="col-md-6">
         <h5><%= @post.name %><h5>
 
-        
         <%= @post.author %>
         <div class="rate-space ">
             <span class="difficulty">difficulty:<span>
@@ -21,22 +23,11 @@
         </div>
 
         <span class="post_time"><%= get_elapsed_time(@post.created_at) %><span>
-    </div>
-    <div class="col-md-3">
-        <%= image_tag @post.image_url , :width => '100%'%>
-    </div>
-    <div class="col-md-1"></div>
-</div>
 
-
-<div class="row post_show_comment">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <h3>Comment</h3> 
+        <h3 class="post_show_comment">Comment</h3> 
         <div>
             <%= @post.content_public %>
         </div>
-
         <% if @post.user_id == current_user.id %>
             <div class="option-btn">
                 <%= link_to "Edit", edit_post_path(@post) , class: "btn btn-outline-secondary" %>
@@ -44,5 +35,8 @@
             </div>
         <% end %>
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <%= image_tag @post.image_url , :width => '100%'%>
+    </div>
+    <div class="col-md-2"></div>
 </div>

@@ -12,12 +12,13 @@
     
 }
 
+// show
 .user-post-list{
     width: 100%;
 }
 
 .user-post-each{
-    padding: 20px;
+    padding: 10px;
     border-top: solid 1px#C0C0C0	;
 }
 
@@ -27,6 +28,5 @@
     height: 150px;
     width: 150px;
     object-fit: cover;
-    filter: drop-shadow(0 0 1px rgb(77, 71, 72));
-  }
-  
+    filter: drop-shadow(0 0 1px rgb(77, 71, 72)); 
+}
