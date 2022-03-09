@@ -21,26 +21,30 @@
     </div>
 
     <div class="col-md-8">
-        <h3><span class="badge badge-secondary"><%= @posts.size %> Posts</span></h3>
-        <% @posts.each do |post| %>
-            <div class="user-post-each">
-                <%= link_to(post, class:"btn user-post-list") do %>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h5><%= truncate(post.name, :length => 20) %></h5>
-                            <div class="rate-space ">difficulty <span class="rate rate<%= post.difficulty %>"><span></div>      
-                            <div class="rate-space ">volume <span class="rate rate<%= post.volume %>"><span></div>                        
-                            <div class="rate-space ">recommendation <span class="rate rate<%= post.point %>"><span></div>
-                            <span class="post_time"><%= get_elapsed_time(post.created_at) %><span>
+        <% if @posts.length > 0 %>
+            <h3><span class="badge badge-secondary"><%= @posts.size %> Posts</span></h3>
+            <% @posts.each do |post| %>
+                <div class="user-post-each">
+                    <%= link_to(post, class:"btn user-post-list") do %>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5><%= truncate(post.name, :length => 20) %></h5>
+                                <div class="rate-space ">difficulty <span class="rate rate<%= post.difficulty %>"><span></div>      
+                                <div class="rate-space ">volume <span class="rate rate<%= post.volume %>"><span></div>                        
+                                <div class="rate-space ">recommendation <span class="rate rate<%= post.point %>"><span></div>
+                                <span class="post_time"><%= get_elapsed_time(post.created_at) %><span>
+                            </div>
+                            <div class="col-md-3">
+                                <% if post.image_url != nil %>                             
+                                    <%= image_tag post.image_url, :width => '100%'%>
+                                <% end %>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <% if post.image_url != nil %>                             
-                                <%= image_tag post.image_url, :width => '100%'%>
-                            <% end %>
-                        </div>
-                    </div>
-                <% end %>
-            </div>
+                    <% end %>
+                </div>
+            <% end %>
+        <% else %>
+            <%= render 'welcome' %>
         <% end %>
     <div>
 </div>
