@@ -1,8 +1,10 @@
-<h3>Search for a book</h3>
-<%= form_with url: searches_path, method: :get, local: true do |f| %>
+<h3>Search for a user</h3>
+<%= form_with url: user_searches_path, method: :get, local: true do |f| %>
     <div class="form-group">
         <%= f.label :keyword %>
         <%= f.text_field :keyword, class: "form-control" %>
     </div>
     <%= f.submit "search", class: "btn btn-outline-primary" %>
 <% end %>
+
+<%= link_to "Developer Account (taigamur)" ,  user_path(id: 1) %>

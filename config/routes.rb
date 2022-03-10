@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :relationships
   resources :followings
   resources :followers
+  resources :user_searches
 end

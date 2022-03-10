@@ -4,11 +4,6 @@ class UsersController < ApplicationController
         @user = current_user
     end
 
-    # ユーザー全員を表示
-    def index
-        @users = User.all
-    end
-
     # 個別のユーザーを表示
     def show
         @user = User.find(params[:id])
