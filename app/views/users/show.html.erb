@@ -17,9 +17,6 @@
             <%= link_to "followers", follower_path(id: @user.id) %>
         </div>
         <%= render 'follow_form' %>
-
-        <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Test', target: '_blank' %>
-
     </div>
 
     <div class="col-md-8">
