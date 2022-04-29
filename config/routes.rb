@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'log_out', to: 'sessions#destroy', as: 'log_out'
+  get 'login', to: 'home#new'
 
   resources :sessions
   resources :home
@@ -15,4 +16,11 @@ Rails.application.routes.draw do
   resources :followings
   resources :followers
   resources :user_searches
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+    end
+  end
+
 end
