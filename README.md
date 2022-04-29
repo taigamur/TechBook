@@ -24,3 +24,9 @@ https://techbookcareer.com/
 * docker-compose run app rails assets:precompile RAILS_ENV=production
 * docker-compose up
 
+## APIについて
+
+### ユーザー情報の取得
+|                             | メソッド     | URL            |       |
+| --------------------------- | ----------- | ------------- | ------ |
+| 全ユーザーのid, usernameを取得 | GET         | /api/v1/users |        |
