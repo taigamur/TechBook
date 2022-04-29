@@ -3,6 +3,9 @@
 ## 内容
 エンジニアのための、技術書の共有アプリケーション
 
+## URL
+https://techbookcareer.com/
+
 ## 開発背景
 エンジニアは常に技術を学び、成長を志す人が多い。
 学習方法として、技術書を読み進めることによりインプットする方法が一般的である。オンラインストアの書籍のレビューは、投稿者の技術力により感覚が異なるため、参考にするべき情報ではない可能性がある。  
@@ -15,9 +18,9 @@
 * 新しい技術を学びたいが、何を学ぶか決まっておらず、他のエンジニアを参考にしたい人。
 * これまでに読んだ技術書を自分で管理したい人。
 
-2022/02/09 開発開始
-
+## setup
 * docker-compose build
 * docker network create myapp-network
 * docker-compose run app rails assets:precompile RAILS_ENV=production
 * docker-compose up
+
