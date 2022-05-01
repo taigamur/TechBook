@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     def destroy
         reset_session
-        redirect_to new_home_path # , notice: "ログアウトしました" 変更
+        redirect_to login_path # , notice: "ログアウトしました" 変更
     end
 
     private

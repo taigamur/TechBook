@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
     def authenticate
         return if logged_in?
         # redirect_to new_home_path, alert: "Please log in"
-        redirect_to new_home_path
+        redirect_to login_path
     end
 end
