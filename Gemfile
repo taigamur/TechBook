@@ -29,6 +29,7 @@ gem 'omniauth-rails_csrf_protection'
 gem "nokogiri", ">= 1.13.2"
 gem "puma", ">= 4.3.11"
 gem "image_processing", ">= 1.12.2"
+gem 'grape'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
