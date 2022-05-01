@@ -5,6 +5,11 @@ class Api::V1::UsersController < ApplicationController
         users = User.all
         render json: users.to_json(only: [:id, :name])
     end
+
+    def show
+        users = User.find(params[:id])
+        render json: users.to_json(only: [:id, :name])
+    end
     
 
 end
